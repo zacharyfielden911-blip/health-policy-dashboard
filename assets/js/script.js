@@ -1,62 +1,51 @@
-// =========================================
 // assets/js/script.js
-// مدیریت عملکردها و جابجایی بین صفحات
-// =========================================
+
+// وقتی صفحه لود شد، به صورت پیش‌فرض صفحه مقدمه را باز کن
+document.addEventListener('DOMContentLoaded', () => {
+    loadPage('intro'); 
+});
 
 /**
- * نمایش بخش‌های اصلی (منوی سایدبار)
- * @param {string} id - شناسه بخشی که باید نمایش داده شود
- * @param {HTMLElement} btn - دکمه‌ای که کلیک شده است
+ * تابع اصلی برای بارگذاری محتوا از فایل‌های جداگانه
+ * @param {string} pageName - نام فایل بدون پسوند (مثلا 'intro')
+ * @param {HTMLElement} btn - دکمه کلیک شده (اختیاری)
  */
-function showSection(id, btn) {
-    // 1. مخفی کردن تمام بخش‌های محتوایی
-    document.querySelectorAll('.content-section').forEach(section => {
-        section.classList.remove('active');
-    });
+async function loadPage(pageName, btn) {
+    const displayArea = document.getElementById('content-display');
+    
+    // 1. نمایش حالت لودینگ (برای زیبایی)
+    displayArea.innerHTML = '<div style="text-align:center; padding:50px; color:#999;">در حال بارگذاری... ⏳</div>';
 
-    // 2. نمایش بخش انتخاب شده
-    const targetSection = document.getElementById(id);
-    if (targetSection) {
-        targetSection.classList.add('active');
-    }
-
-    // 3. غیرفعال کردن تمام دکمه‌های منو
-    document.querySelectorAll('.menu-btn').forEach(button => {
-        button.classList.remove('active');
-    });
-
-    // 4. فعال کردن دکمه کلیک شده
+    // 2. مدیریت دکمه‌های فعال منو
     if (btn) {
+        document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
     }
 
-    // 5. اسکرول به بالای صفحه
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    try {
+        // 3. درخواست فایل از سرور (پوشه pages)
+        const response = await fetch(`pages/${pageName}.html`);
+        
+        if (!response.ok) throw new Error('فایل پیدا نشد!');
+
+        // 4. دریافت متن فایل و نمایش در صفحه
+        const htmlContent = await response.text();
+        displayArea.innerHTML = htmlContent;
+
+        // 5. اسکرول به بالا
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    } catch (error) {
+        displayArea.innerHTML = `<div class="highlight-box box-danger">خطا در بارگذاری محتوا: ${error.message}</div>`;
+    }
 }
 
-/**
- * نمایش تب‌های داخلی (زیرمجموعه‌ها)
- * @param {string} id - شناسه تب داخلی
- * @param {HTMLElement} btnElement - دکمه تب کلیک شده
- */
+// تابعی برای باز کردن تب‌های داخلی (اگر در فایل‌های HTML استفاده کردید)
 function showSubTab(id, btnElement) {
-    // پیدا کردن کانتینر والد (بخش اصلی)
-    const parent = btnElement.closest('.content-section');
+    const parent = btnElement.closest('.content-section') || document.getElementById('content-display');
+    parent.querySelectorAll('.sub-content').forEach(sub => sub.style.display = 'none');
+    parent.querySelector('#' + id).style.display = 'block';
     
-    // مخفی کردن محتوای سایر تب‌ها در همین بخش
-    parent.querySelectorAll('.sub-content').forEach(sub => {
-        sub.classList.remove('active');
-    });
-
-    // نمایش محتوای تب انتخاب شده
-    const targetTab = parent.querySelector('#' + id);
-    if (targetTab) {
-        targetTab.classList.add('active');
-    }
-
-    // آپدیت کلاس اکتیو دکمه‌ها
-    parent.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('active');
-    });
+    parent.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     btnElement.classList.add('active');
 }
