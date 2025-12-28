@@ -1,13 +1,9 @@
-// =========================================
 // assets/js/script.js
-// نسخه کامل: مدیریت بارگذاری صفحات + تب‌ها + آکاردئون
-// =========================================
+// نسخه نهایی و کامل: مدیریت بارگذاری صفحات + تب‌ها + آکاردئون + نمودارها
 
 // وقتی صفحه لود شد، به صورت پیش‌فرض فصل ۱ را باز کن
 document.addEventListener('DOMContentLoaded', () => {
-    // اگر فایل chapter1 را ساخته‌اید، اینجا chapter1 باشد
-    // اگر هنوز نساخته‌اید و intro دارید، intro بگذارید
-    loadPage('home'); 
+    loadPage('chapter1');
 });
 
 /**
@@ -29,7 +25,7 @@ async function loadPage(pageName, btn) {
 
     try {
         // 3. درخواست فایل از سرور (پوشه pages)
-        // اضافه کردن زمان تصادفی برای جلوگیری از کش شدن (اختیاری)
+        // اضافه کردن زمان تصادفی (?t=...) برای جلوگیری از کش شدن مرورگر
         const response = await fetch(`pages/${pageName}.html?t=${new Date().getTime()}`);
         
         if (!response.ok) throw new Error('فایل پیدا نشد!');
@@ -41,6 +37,15 @@ async function loadPage(pageName, btn) {
         // 5. اسکرول به بالا
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
+        // ===============================================
+        // مدیریت اجرای کدهای خاص برای هر صفحه
+        // ===============================================
+        
+        // اگر صفحه "فصل ۲" (تحلیل محیطی) بود، نمودار را رسم کن
+        if (pageName === 'chapter2') {
+            renderAgingChart();
+        }
+
     } catch (error) {
         displayArea.innerHTML = `<div class="highlight-box box-danger">
             <strong>خطا:</strong> محتوا بارگذاری نشد. <br>
@@ -48,6 +53,65 @@ async function loadPage(pageName, btn) {
             <br>جزئیات: ${error.message}
         </div>`;
     }
+}
+
+/**
+ * تابع اختصاصی رسم نمودار برای فصل ۲
+ * (نیاز به کتابخانه Chart.js دارد که در index.html فراخوانی شده)
+ */
+function renderAgingChart() {
+    // یک تاخیر کوچک می‌دهیم تا مطمئن شویم المان HTML در صفحه قرار گرفته است
+    setTimeout(() => {
+        const ctx = document.getElementById('agingChart');
+        
+        // شرط: المان وجود داشته باشد و کتابخانه Chart.js لود شده باشد
+        if (ctx && typeof Chart !== 'undefined') {
+            
+            // جلوگیری از رسم تکراری (اگر نمودار قبلی روی این بوم هست، پاکش کن)
+            const existingChart = Chart.getChart(ctx);
+            if (existingChart) existingChart.destroy();
+
+            // رسم نمودار جدید
+            new Chart(ctx, {
+                type: 'line', // نوع نمودار: خطی
+                data: {
+                    labels: ['۱۴۰۰', '۱۴۰۵', '۱۴۱۰', '۱۴۱۵', '۱۴۲۰'], // محور افقی
+                    datasets: [{
+                        label: 'درصد جمعیت سالمند (بالای ۶۰ سال)',
+                        data: [10.5, 12.8, 16.2, 21.4, 25.1], // داده‌ها
+                        borderColor: '#3498db', // رنگ خط
+                        backgroundColor: 'rgba(52, 152, 219, 0.2)', // رنگ زیر خط
+                        fill: true, // پر کردن زیر خط
+                        tension: 0.4, // نرمی خط
+                        pointRadius: 5,
+                        pointBackgroundColor: '#fff',
+                        pointBorderColor: '#3498db'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { 
+                            labels: { font: { family: 'Vazirmatn', size: 14 } } 
+                        },
+                        tooltip: {
+                            titleFont: { family: 'Vazirmatn' },
+                            bodyFont: { family: 'Vazirmatn' }
+                        }
+                    },
+                    scales: {
+                        x: { ticks: { font: { family: 'Vazirmatn' } } },
+                        y: { ticks: { font: { family: 'Vazirmatn' } } }
+                    },
+                    animation: {
+                        duration: 2000,
+                        easing: 'easeOutQuart'
+                    }
+                }
+            });
+        }
+    }, 100);
 }
 
 /**
