@@ -1,42 +1,124 @@
 <div style="border-bottom: 2px solid #ddd; margin-bottom: 30px; padding-bottom: 10px;">
     <span style="background:var(--primary-color); color:white; padding: 5px 15px; border-radius: 20px; font-size: 0.8em;">بخش دوم</span>
-    <h2 style="margin-top: 15px; border:none;">تحلیل کانتکس و شرایط محیطی (STEEP)</h2>
+    <h2 style="margin-top: 15px; border:none;">تحلیل بافتار (Context Analysis) و اکوسیستم ذی‌نفعان</h2>
 </div>
 
 <p>
-    در این بخش، با استفاده از ابزار تحلیل محیطی، بسترهای تأثیرگذار بر سیاست‌گذاری سلامت دیجیتال بررسی می‌شود...
+    سیاست‌گذاری در سلامت دیجیتال، مداخله در یک سیستم پیچیده اجتماعی-فنی است. تحلیل زیر نشان می‌دهد چرا رویکردهای خطی محکوم به شکست‌اند و چرا «پنجره فرصت» اکنون باز شده است.
 </p>
 
-<div class="card-grid">
-    <div class="card" style="border-right-color: #3498db;">
-        <h4 style="color:#2980b9; margin-top:0;">👥 کانتکس اجتماعی (Social)</h4>
-        <ul>
-            <li>پیری جمعیت ایران در دو دهه آینده</li>
-            <li>مقاومت فرهنگی پزشکان در برابر شفافیت</li>
-        </ul>
+<h3 style="margin-top: 40px; color:var(--primary-color);">۲.۱. تحلیل محیط راهبردی (STEEP Analysis)</h3>
+<p style="font-size: 0.9em; color:#666; margin-bottom: 20px;">برای مشاهده جزئیات هر بخش، روی آن کلیک کنید:</p>
+
+<div class="accordion-container">
+    
+    <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+            <span>👥 الف) بافتار اجتماعی: سونامی پیری و بحران عدالت</span>
+            <span class="icon">+</span>
+        </button>
+        <div class="accordion-content">
+            <p><strong>تغییر دموگرافیک:</strong> حرکت به سمت سالمندی و تغییر الگوی بیماری‌ها از «حاد» به «مزمن» که نیازمند پایش مستمر است.</p>
+            <div class="highlight-box box-warning">
+                <strong>پارادوکس اجتماعی:</strong> 
+                از یک سو تقاضای بالا برای خدمات آنلاین (سواد دیجیتال نسل جوان)، و از سوی دیگر «بی‌اعتمادی به محرمانگی داده‌ها» و خطر «شکاف دیجیتال» در مناطق محروم.
+            </div>
+        </div>
     </div>
 
-    <div class="card" style="border-right-color: #9b59b6;">
-        <h4 style="color:#8e44ad; margin-top:0;">💻 کانتکس تکنولوژیک (Technological)</h4>
-        <ul>
-            <li>نفوذ بالای اینترنت و تلفن هوشمند</li>
-            <li>چالش جزایر داده‌ای (Data Silos)</li>
-        </ul>
+    <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+            <span>💻 ب) بافتار تکنولوژیک: جزایر داده‌ای</span>
+            <span class="icon">+</span>
+        </button>
+        <div class="accordion-content">
+            <p><strong>توسعه نامتوازن:</strong> زیرساخت سخت‌افزاری خوب است، اما در لایه نرم‌افزاری با <strong>«جزایر داده‌ای» (Data Silos)</strong> روبرو هستیم.</p>
+            <ul>
+                <li>فقدان استاندارد ملی تبادل داده (Interoperability).</li>
+                <li>پرونده الکترونیک (EHR) عملاً یک بایگانی محلی است.</li>
+                <li>عدم دسترسی به داده‌های تمیز برای توسعه هوش مصنوعی.</li>
+            </ul>
+        </div>
     </div>
 
-    <div class="card" style="border-right-color: #2ecc71;">
-        <h4 style="color:#27ae60; margin-top:0;">💰 کانتکس اقتصادی (Economic)</h4>
-        <ul>
-            <li>بحران صندوق‌های بازنشستگی</li>
-            <li>نیاز حیاتی به کاهش هزینه‌های درمان</li>
-        </ul>
+    <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+            <span>💰 ج) بافتار اقتصادی: فشار هزینه و فرصت کارآیی</span>
+            <span class="icon">+</span>
+        </button>
+        <div class="accordion-content">
+            <p>نظام تأمین مالی با کسری بودجه مزمن و سهم بالای پرداخت از جیب مواجه است. مدل «کارانه» (Fee-for-Service) ذاتاً تورم‌زا است.</p>
+            <div class="highlight-box box-success">
+                <strong>فرصت:</strong> سلامت دیجیتال یک ضرورت اقتصادی است (کاهش هزینه‌های سربار و ویزیت‌های غیرضروری). اما مقاومت ذی‌نفعان سنتی مانع اصلی است.
+            </div>
+        </div>
     </div>
 
-    <div class="card" style="border-right-color: #e74c3c;">
-        <h4 style="color:#c0392b; margin-top:0;">🏛️ کانتکس نهادی (Institutional)</h4>
-        <ul>
-            <li>تعارض منافع ساختاری (وزارت بهداشت هم ناظر است هم مجری)</li>
-            <li>قفل‌شدگی در مدل‌های قدیمی</li>
-        </ul>
+    <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+            <span>🏛️ د) بافتار نهادی: تعارض منافع ساختاری</span>
+            <span class="icon">+</span>
+        </button>
+        <div class="accordion-content">
+            <p><strong>بزرگترین مانع:</strong> نقش دوگانه وزارت بهداشت هم به عنوان «رگولاتور» و هم «ارائه‌دهنده خدمت».</p>
+            <p>قوانین موجود برای عصر «مطب و کاغذ» نوشته شده‌اند و در برابر پدیده‌هایی مثل نسخه الکترونیک و هوش مصنوعی دچار لکنت هستند.</p>
+        </div>
     </div>
+
 </div>
+
+<h3 style="margin-top: 50px; color:var(--primary-color);">۲.۲. تحلیل ذی‌نفعان: نقشه قدرت و منافع</h3>
+<div class="card-grid">
+    
+    <div class="card" style="border-left: 5px solid #7f8c8d;">
+        <h4 style="color:#2c3e50; margin-top:0;">۱. بازیگران مستقر (Incumbents) 🐢</h4>
+        <p style="font-size:0.9em;"><strong>نظام پزشکی سنتی، داروخانه‌ها:</strong><br>قدرت بالا، مخالف تغییر. نگران کاهش درآمد و اقتدار حرفه‌ای.</p>
+    </div>
+
+    <div class="card" style="border-left: 5px solid #e74c3c;">
+        <h4 style="color:#c0392b; margin-top:0;">۲. چالش‌گران (Challengers) 🚀</h4>
+        <p style="font-size:0.9em;"><strong>پلتفرم‌ها (اسنپ‌دکتر...)، پزشکان جوان:</strong><br>به دنبال شکستن انحصار و شفافیت. منافعشان در آزادسازی داده است.</p>
+    </div>
+
+    <div class="card" style="border-left: 5px solid #3498db;">
+        <h4 style="color:#2980b9; margin-top:0;">۳. تنظیم‌گران (Regulators) ⚖️</h4>
+        <p style="font-size:0.9em;"><strong>وزارت بهداشت (محتاط)، معاونت علمی (حامی):</strong><br>و بیمه‌ها (بازیگران خفته) که منافعشان با سلامت دیجیتال هم‌راستاست.</p>
+    </div>
+
+    <div class="card" style="border-left: 5px solid #2ecc71;">
+        <h4 style="color:#27ae60; margin-top:0;">۴. ذی‌نفعان نهایی (Users) ❤️</h4>
+        <p style="font-size:0.9em;"><strong>بیماران و شهروندان:</strong><br>به دنبال دسترسی ارزان و سریع. درد اصلی: هزینه و عدم دسترسی.</p>
+    </div>
+
+</div>
+
+<div class="highlight-box box-info" style="margin-top: 30px;">
+    <strong>🔑 نقاط اهرمی (Leverage Points):</strong>
+    کلید موفقیت در «مدیریت تنش» و «اصلاح ساختار انگیزشی» است. استفاده از قدرت خرید بیمه‌ها و ایجاد سندباکس برای دور زدن قفل‌های قانونی.
+</div>
+
+<style>
+    .accordion-item { border: 1px solid #eee; margin-bottom: 10px; border-radius: 8px; overflow: hidden; }
+    .accordion-header { width: 100%; padding: 15px; background: #f9f9f9; border: none; text-align: right; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: inherit; font-weight: bold; color: #444; }
+    .accordion-header:hover { background: #f1f1f1; }
+    .accordion-content { display: none; padding: 20px; background: white; animation: fadeIn 0.3s; }
+    .accordion-content.active { display: block; }
+</style>
+
+<script>
+    function toggleAccordion(btn) {
+        const content = btn.nextElementSibling;
+        const icon = btn.querySelector('.icon');
+        
+        // بستن بقیه (اختیاری)
+        // document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('active'));
+        
+        if (content.classList.contains('active')) {
+            content.classList.remove('active');
+            icon.textContent = '+';
+        } else {
+            content.classList.add('active');
+            icon.textContent = '-';
+        }
+    }
+</script>
