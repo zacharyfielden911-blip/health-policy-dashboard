@@ -8,13 +8,13 @@
 </p>
 
 <h3 style="margin-top: 40px; color:var(--primary-color);">۲.۱. تحلیل محیط راهبردی (STEEP Analysis)</h3>
-<p style="font-size: 0.9em; color:#666; margin-bottom: 20px;">برای مشاهده جزئیات هر بخش، روی آن کلیک کنید:</p>
+<p style="font-size: 0.9em; color:#666; margin-bottom: 20px;">برای مشاهده جزئیات ۵ لایه تحلیل، روی گزینه‌ها کلیک کنید:</p>
 
 <div class="accordion-container">
     
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion(this)">
-            <span>👥 الف) بافتار اجتماعی: سونامی پیری و بحران عدالت</span>
+            <span>👥 ۱. بافتار اجتماعی (Social)</span>
             <span class="icon">+</span>
         </button>
         <div class="accordion-content">
@@ -28,7 +28,7 @@
 
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion(this)">
-            <span>💻 ب) بافتار تکنولوژیک: جزایر داده‌ای</span>
+            <span>💻 ۲. بافتار تکنولوژیک (Technological)</span>
             <span class="icon">+</span>
         </button>
         <div class="accordion-content">
@@ -43,7 +43,7 @@
 
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion(this)">
-            <span>💰 ج) بافتار اقتصادی: فشار هزینه و فرصت کارآیی</span>
+            <span>💰 ۳. بافتار اقتصادی (Economic)</span>
             <span class="icon">+</span>
         </button>
         <div class="accordion-content">
@@ -56,12 +56,27 @@
 
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion(this)">
-            <span>🏛️ د) بافتار نهادی: تعارض منافع ساختاری</span>
+            <span>🌱 ۴. بافتار محیط‌زیستی (Environmental)</span>
             <span class="icon">+</span>
         </button>
         <div class="accordion-content">
-            <p><strong>بزرگترین مانع:</strong> نقش دوگانه وزارت بهداشت هم به عنوان «رگولاتور» و هم «ارائه‌دهنده خدمت».</p>
-            <p>قوانین موجود برای عصر «مطب و کاغذ» نوشته شده‌اند و در برابر پدیده‌هایی مثل نسخه الکترونیک و هوش مصنوعی دچار لکنت هستند.</p>
+            <p><strong>بیمارستان سبز و کاهش ردپای کربن:</strong></p>
+            <ul>
+                <li><strong>کاهش سفر:</strong> تله‌مدیسین می‌تواند میلیون‌ها سفر درون‌شهری و بین‌شهری غیرضروری بیماران (به ویژه از شهرستان به تهران) را حذف کند.</li>
+                <li><strong>حذف کاغذ:</strong> نسخه الکترونیک و پرونده دیجیتال، مصرف عظیم کاغذ و فیلم‌های رادیولوژی شیمیایی را کاهش می‌دهد.</li>
+                <li><strong>چالش:</strong> نیاز به مدیریت زباله‌های الکترونیکی (E-waste) تجهیزات پزشکی هوشمند.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+            <span>🏛️ ۵. بافتار سیاسی و قانونی (Political)</span>
+            <span class="icon">+</span>
+        </button>
+        <div class="accordion-content">
+            <p><strong>بزرگترین مانع (Political Will):</strong> تعارض منافع ساختاری در وزارت بهداشت (رگولاتور + ارائه‌دهنده خدمت).</p>
+            <p>قوانین موجود برای عصر «مطب و کاغذ» نوشته شده‌اند و اراده سیاسی کافی برای شکستن انحصار داده‌ای و پذیرش بازیگران بخش خصوصی (پلتفرم‌ها) هنوز شکل نگرفته است.</p>
         </div>
     </div>
 
@@ -96,29 +111,3 @@
     <strong>🔑 نقاط اهرمی (Leverage Points):</strong>
     کلید موفقیت در «مدیریت تنش» و «اصلاح ساختار انگیزشی» است. استفاده از قدرت خرید بیمه‌ها و ایجاد سندباکس برای دور زدن قفل‌های قانونی.
 </div>
-
-<style>
-    .accordion-item { border: 1px solid #eee; margin-bottom: 10px; border-radius: 8px; overflow: hidden; }
-    .accordion-header { width: 100%; padding: 15px; background: #f9f9f9; border: none; text-align: right; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: inherit; font-weight: bold; color: #444; }
-    .accordion-header:hover { background: #f1f1f1; }
-    .accordion-content { display: none; padding: 20px; background: white; animation: fadeIn 0.3s; }
-    .accordion-content.active { display: block; }
-</style>
-
-<script>
-    function toggleAccordion(btn) {
-        const content = btn.nextElementSibling;
-        const icon = btn.querySelector('.icon');
-        
-        // بستن بقیه (اختیاری)
-        // document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('active'));
-        
-        if (content.classList.contains('active')) {
-            content.classList.remove('active');
-            icon.textContent = '+';
-        } else {
-            content.classList.add('active');
-            icon.textContent = '-';
-        }
-    }
-</script>
