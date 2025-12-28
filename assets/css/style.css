@@ -35,6 +35,9 @@ body {
     display: flex;
     flex-direction: column;
     border-left: 1px solid #eee;
+    background: rgba(255, 255, 255, 0.85); /* کمی شفاف */
+    backdrop-filter: blur(10px); /* افکت مات‌کننده پشت شیشه */
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .brand {
