@@ -1,36 +1,97 @@
-<div style="border-bottom: 2px solid #ddd; margin-bottom: 30px; padding-bottom: 10px;">
+<div style="border-bottom: 2px solid #ddd; margin-bottom: 20px; padding-bottom: 10px;">
     <span style="background:var(--primary-color); color:white; padding: 5px 15px; border-radius: 20px; font-size: 0.8em;">بخش سوم</span>
-    <h2 style="margin-top: 15px; border:none;">آمیخته سیاستی پیشنهادی (Policy Mix)</h2>
+    <h2 style="margin-top: 15px; border:none;">طراحی آمیخته سیاستی (The Policy Mix Design)</h2>
 </div>
 
-<p>در این بخش ترکیبی از ابزارهای طرف عرضه، تقاضا و محیطی پیشنهاد می‌شود:</p>
-
-<div class="inner-tabs">
-    <button class="tab-btn active" onclick="showSubTab('tab-reg', this)">الف) تنظیم‌گری</button>
-    <button class="tab-btn" onclick="showSubTab('tab-fin', this)">ب) مالی و اقتصادی</button>
-    <button class="tab-btn" onclick="showSubTab('tab-soft', this)">ج) نرم و فرهنگی</button>
-</div>
-
-<div id="tab-reg" class="sub-content active" style="display:block;">
-    <div class="highlight-box box-success">
-        <h4>۱. محیط آزمون تنظیم‌گری (Regulatory Sandbox)</h4>
-        <p>پیشنهاد: ایجاد فضایی امن برای استارتاپ‌های سلامت...</p>
+<div class="content-block">
+    <h3>۳.۱. مقدمه: ارکستراسیون سیاستی</h3>
+    <p>برای گذار از قفل‌شدگی فعلی، تک‌ابزارها محکوم به شکست‌اند. ما نیازمند یک <strong>«پورتفوی سیاستی متوازن»</strong> هستیم.</p>
+    <div class="highlight-box box-info">
+        <strong>🎯 استراتژی اصلی:</strong>
+        تحریک همزمان «عرضه نوآوری»، «شکل‌دهی تقاضا» و «رفع موانع نهادی» بر اساس تحلیل شکست‌های شناسایی شده.
     </div>
-    <div class="highlight-box box-warning">
-        <h4>۲. استانداردسازی اجباری تبادل داده</h4>
-        <p>پیشنهاد: الزام کلیه بیمارستان‌ها به استفاده از استانداردهای تبادل داده...</p>
+</div>
+
+<div class="inner-tabs" style="margin-top: 30px; justify-content: center;">
+    <button class="tab-btn active" onclick="showSubTab('tab-reg', this)">🏛️ ستون ۱: تنظیم‌گری</button>
+    <button class="tab-btn" onclick="showSubTab('tab-fin', this)">💰 ستون ۲: مالی و اقتصادی</button>
+    <button class="tab-btn" onclick="showSubTab('tab-soft', this)">🎓 ستون ۳: نرم و فرهنگی</button>
+</div>
+
+<div id="tab-reg" class="sub-content active">
+    <p style="text-align:center; color:#666; margin-bottom:20px;">هدف: رفع شکست‌های نهادی و ایجاد زیرساخت تعامل</p>
+    
+    <div class="card" style="border-right: 5px solid #2ecc71; margin-bottom: 20px;">
+        <h4 style="color:#27ae60; margin-top:0;">🛠️ ابزار اول: محیط آزمون تنظیم‌گری (Regulatory Sandbox)</h4>
+        <p><strong>مسئله:</strong> قوانین کهنه که مانع مدل‌های کسب‌وکار نوین می‌شوند.</p>
+        <div style="background:#f9f9f9; padding:15px; border-radius:8px; font-size:0.95em;">
+            <strong>طراحی عملیاتی:</strong>
+            <ul>
+                <li><strong>تعلیق محدود قوانین:</strong> فعالیت استارتاپ‌ها برای مدت محدود (مثلاً ۲ سال) بدون برخی مجوزهای سخت‌گیرانه.</li>
+                <li><strong>نظارت داده‌محور:</strong> جایگزینی نظارت پیشینی (مجوز) با نظارت پسینی (داده).</li>
+            </ul>
+        </div>
+        <p style="font-size:0.9em; margin-top:10px;"><em>💡 توجیه: کاهش ریسک ورود و ایجاد «آزمایشگاه زنده» برای رگولاتور.</em></p>
+    </div>
+
+    <div class="card" style="border-right: 5px solid #e67e22;">
+        <h4 style="color:#d35400; margin-top:0;">🔗 ابزار دوم: استانداردسازی اجباری داده (FHIR)</h4>
+        <p><strong>مسئله:</strong> جزایر داده‌ای و عدم امکان تبادل پرونده بیمار (شکست تعاملی).</p>
+        <div style="background:#fff3e0; padding:15px; border-radius:8px; font-size:0.95em;">
+            <strong>طراحی عملیاتی:</strong>
+            <ul>
+                <li><strong>الزام قانونی:</strong> تمدید پروانه بیمارستان‌ها منوط به پیاده‌سازی استاندارد ملی تبادل داده.</li>
+                <li><strong>مالکیت داده:</strong> داده متعلق به «بیمار» است و مراکز درمانی صرفاً امانت‌دار هستند (Data Portability).</li>
+            </ul>
+        </div>
     </div>
 </div>
 
 <div id="tab-fin" class="sub-content" style="display:none;">
-    <h3>ابزارهای مالی</h3>
-    <ul>
-        <li><strong>پوشش بیمه‌ای (طرف تقاضا):</strong> الزام بیمه‌ها به پرداخت ویزیت آنلاین.</li>
-        <li><strong>اعتبار مالیاتی (طرف عرضه):</strong> معافیت مالیاتی مشروط به اتصال به پلتفرم ملی.</li>
-    </ul>
+    <p style="text-align:center; color:#666; margin-bottom:20px;">هدف: تغییر ساختار انگیزشی و بازارسازی</p>
+
+    <div class="card-grid">
+        <div class="card" style="border-top: 4px solid #3498db; border-right:none;">
+            <h4 style="color:#2980b9;">۱. پوشش بیمه‌ای هوشمند</h4>
+            <p style="font-size:0.9em;"><strong>طرف تقاضا (بازارسازی)</strong></p>
+            <ul>
+                <li>تصویب تعرفه تله‌مدیسین.</li>
+                <li>حرکت به سمت «پرداخت مبتنی بر ارزش» (Value-Based) به جای تعداد ویزیت.</li>
+            </ul>
+        </div>
+
+        <div class="card" style="border-top: 4px solid #9b59b6; border-right:none;">
+            <h4 style="color:#8e44ad;">۲. اعتبار مالیاتی مشروط</h4>
+            <p style="font-size:0.9em;"><strong>طرف عرضه (انگیزش)</strong></p>
+            <ul>
+                <li><strong>مشوق:</strong> معافیت مالیاتی برای پزشکانی که پرونده الکترونیک کامل تشکیل دهند.</li>
+                <li><strong>شرط:</strong> رضایت بیمار و کیفیت داده.</li>
+            </ul>
+        </div>
+
+        <div class="card" style="border-top: 4px solid #e74c3c; border-right:none;">
+            <h4 style="color:#c0392b;">۳. صندوق خطرپذیر (CVC)</h4>
+            <p style="font-size:0.9em;"><strong>تامین مالی نوآوری</strong></p>
+            <ul>
+                <li>سرمایه‌گذاری مشترک بیمه‌ها و صندوق نوآوری.</li>
+                <li>حل مشکل «دره مرگ» برای استارتاپ‌های دیپ‌تک.</li>
+            </ul>
+        </div>
+    </div>
 </div>
 
 <div id="tab-soft" class="sub-content" style="display:none;">
-    <h3>ابزارهای نرم</h3>
-    <p>تغییر کوریکولوم آموزشی پزشکی و اضافه کردن واحدهای داده‌کاوی...</p>
+    <p style="text-align:center; color:#666; margin-bottom:20px;">هدف: رفع شکست‌های قابلیتی و فرهنگی</p>
+
+    <div class="highlight-box box-success" style="border-right-color: #009688;">
+        <h4>🧠 ابزار ششم: اصلاح کوریکولوم پزشکی</h4>
+        <p><strong>مسئله:</strong> مقاومت فرهنگی و فقدان مهارت دیجیتال در کادر درمان.</p>
+        <hr style="border:0; border-top:1px solid #b2dfdb; margin:10px 0;">
+        <p><strong>طراحی عملیاتی:</strong></p>
+        <ul style="margin-bottom:0;">
+            <li>اضافه کردن واحدهای «انفورماتیک پزشکی» و «هوش مصنوعی» به دوره عمومی.</li>
+            <li>امتیاز بازآموزی بالا برای دوره‌های دیجیتال پزشکان فعلی.</li>
+        </ul>
+        <p style="margin-top:10px; font-size:0.9em;"><strong>نتیجه:</strong> افزایش ظرفیت جذب (Absorptive Capacity) نظام سلامت.</p>
+    </div>
 </div>
