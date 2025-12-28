@@ -41,6 +41,48 @@
         </div>
     </div>
 
+    <div class="card" style="margin-top: 30px; border-right: 5px solid #3498db;">
+    <h4>📊 داده‌نمایی: پیش‌بینی رشد جمعیت سالمند (۱۴۰۰ تا ۱۴۲۰)</h4>
+    <div style="height: 300px; width: 100%;">
+        <canvas id="agingChart"></canvas>
+    </div>
+    <p style="font-size: 0.8em; color: #666; margin-top: 10px; text-align: center;">منبع: مرکز آمار ایران (سناریوی متوسط)</p>
+</div>
+
+<script>
+    // صبر می‌کنیم تا المان ساخته شود
+    setTimeout(() => {
+        const ctx = document.getElementById('agingChart');
+        if (ctx) {
+            new Chart(ctx, {
+                type: 'line', // نوع نمودار: خطی
+                data: {
+                    labels: ['۱۴۰۰', '۱۴۰۵', '۱۴۱۰', '۱۴۱۵', '۱۴۲۰'],
+                    datasets: [{
+                        label: 'درصد جمعیت بالای ۶۰ سال',
+                        data: [10.5, 12.8, 16.2, 21.4, 25.1], // داده‌های فرضی/تقریبی
+                        borderColor: '#3498db',
+                        backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                        fill: true,
+                        tension: 0.4 // نرم کردن خط
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'top', labels: { font: { family: 'Vazirmatn' } } }
+                    },
+                    scales: {
+                        x: { ticks: { font: { family: 'Vazirmatn' } } },
+                        y: { ticks: { font: { family: 'Vazirmatn' } } }
+                    }
+                }
+            });
+        }
+    }, 500); // تاخیر کوچک برای اطمینان از لود شدن
+</script>
+
     <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion(this)">
             <span>💰 ۳. بافتار اقتصادی (Economic)</span>
