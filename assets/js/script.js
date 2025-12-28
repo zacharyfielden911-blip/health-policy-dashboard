@@ -7,7 +7,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // اگر فایل chapter1 را ساخته‌اید، اینجا chapter1 باشد
     // اگر هنوز نساخته‌اید و intro دارید، intro بگذارید
-    loadPage('chapter1'); 
+    loadPage('home'); 
 });
 
 /**
