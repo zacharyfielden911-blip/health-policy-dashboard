@@ -3,7 +3,7 @@
 
 // وقتی صفحه لود شد، به صورت پیش‌فرض فصل ۱ را باز کن
 document.addEventListener('DOMContentLoaded', () => {
-    loadPage('chapter1');
+    loadPage('home');
 });
 
 /**
